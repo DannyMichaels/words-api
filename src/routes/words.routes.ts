@@ -4,7 +4,7 @@ import {
   getRandomWords,
   findById,
   create,
-} from '../controllers/words.controllers';
+} from '../controllers/api/words.controllers';
 
 const router = Router();
 

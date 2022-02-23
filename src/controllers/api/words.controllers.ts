@@ -1,6 +1,6 @@
-import WORDS from '../utils/words';
+import WORDS from '../../utils/words';
 import { Response, Request } from 'express';
-import Word from '../models/word.model';
+import Word from '../../models/word.model';
 
 export const getAllWords = async (req: Request, res: Response) => {
   try {

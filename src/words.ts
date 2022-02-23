@@ -1,4 +1,4 @@
-const WORDS = [
+const WORDS: string[] = [
   'a',
   'ability',
   'able',

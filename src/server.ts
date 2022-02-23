@@ -1,19 +1,17 @@
 import express from 'express';
-import logger from 'logger';
+import logger from 'morgan';
 import cors from 'cors';
-import bodyParser from 'body-parser';
 import helmet from 'helmet';
 
 import wordRoutes from './routes/words.routes';
 
 export default function createServer() {
-  const app = express();
+  const app: Express.Application = express();
 
   app.use(cors());
   app.use(helmet()); // security with express-helmet
 
-  app.use(bodyParser.json({ limit: '2mb' }));
-  app.use(bodyParser.urlencoded({ extended: true, limit: '2mb' }));
+  app.use(express.json()); // because body-parser is deprecated
 
   app.use(logger('dev'));
 

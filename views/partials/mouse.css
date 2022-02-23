@@ -1,0 +1,48 @@
+.mouse__container {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 9998;
+  transition: transform 250ms ease-in;
+}
+
+.mouse__face {
+  height: 36px;
+  margin-left: 16px;
+  position: relative;
+}
+
+.mouse__border {
+  background-color: transparent;
+  border-radius: 11px;
+  height: 36px;
+  width: 22px;
+  border: 2px solid rgba(255, 255, 255, 1);
+}
+
+.mouse__wheel {
+  background-color: white;
+  border-radius: 1px;
+  height: 6px;
+  position: absolute;
+  top: 10px;
+  width: 2px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mouse__text {
+  text-align: left;
+  color: white;
+  font-family: 'Helvetica', Helvetica, Arial, serif;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.mouse__container:hover {
+  transform: scaleY(1.05);
+  transition: transform 250ms ease-in;
+  cursor: pointer;
+}

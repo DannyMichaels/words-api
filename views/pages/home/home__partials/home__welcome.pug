@@ -1,8 +1,15 @@
+style(type="text/css")
+  include ./home__welcome.css
+
 section.page-section.welcome
   .inner-column
     .welcome__text__container
-      h2.welcome__message Words API
+      h2.welcome__message= title
       p.welcome__subtitle Because for some reason no one wants to scale or maintain these.
+
+    .welcome__scroll-for-more
+      include ../../../partials/mouse.pug
 
     picture.welcome__ghost__face
       img.welcome__ghost__image(src="images/blue_ghost.png", alt="A happy ghost greeting you")
+  

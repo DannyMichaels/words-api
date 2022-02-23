@@ -1,0 +1,10 @@
+//- scoped style
+style(type="text/css") 
+  include ./mouse.css
+
+.mouse__container
+  if mouseText
+    p.mouse__text= mouseText 
+  .mouse__face
+    .mouse__border
+    .mouse__wheel

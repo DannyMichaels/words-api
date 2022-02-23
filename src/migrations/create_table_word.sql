@@ -1,0 +1,1 @@
+CREATE TABLE Word (textContent VARCHAR(34) NOT NULL, createdBy VARCHAR(34));

@@ -2286,6 +2286,7 @@ const WORDS: string[] = [
   'young',
   'youth',
   'zero',
+  'deez',
 ];
 
 export default WORDS;

@@ -1,4 +1,4 @@
-import WORDS from '../words';
+import WORDS from '../utils/words';
 import sample from '../utils/sample';
 import { Response, Request } from 'express';
 

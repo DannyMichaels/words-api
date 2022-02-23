@@ -1,1 +1,0 @@
-{"version":3,"file":"words.routes.js","sourceRoot":"","sources":["../../src/routes/words.routes.ts"],"names":[],"mappings":";;;;;AAAA,sDAA6B;AAC7B,wEAG0C;AAE1C,MAAM,MAAM,GAAG,IAAA,iBAAM,GAAE,CAAC;AAExB,MAAM,CAAC,GAAG,CAAC,CAAC,QAAQ,EAAE,YAAY,CAAC,EAAE,+BAAW,CAAC,CAAC,CAAC,MAAM;AAEzD,MAAM,CAAC,GAAG,CAAC,eAAe,EAAE,oCAAgB,CAAC,CAAC,CAAC,MAAM;AAErD,kBAAe,MAAM,CAAC"}

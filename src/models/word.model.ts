@@ -33,18 +33,18 @@ Word.findAll = async (pool: Pool) => {
 };
 
 Word.findRandom = async (pool: Pool, limit = 1) => {
-  const query = `SELECT textContent FROM Word
-                ORDER BY RAND()
-                LIMIT ${limit};`;
+  const query = ` SELECT textContent FROM Word
+                  ORDER BY RAND()
+                  LIMIT ${limit};`;
 
   const [result = []]: any = await pool.query(query);
   return result.map(({ textContent }: TWord) => textContent);
 };
 
 Word.findById = async (pool: Pool, id: number) => {
-  const query = `SELECT textContent
-                FROM Word
-                WHERE id = ?;`;
+  const query = ` SELECT textContent
+                  FROM Word
+                  WHERE id = ?;`;
 
   const [[result] = []]: any = await pool.query(query, id);
   return result;

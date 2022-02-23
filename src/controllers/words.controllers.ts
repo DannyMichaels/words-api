@@ -1,27 +1,18 @@
 import WORDS from '../utils/words';
-import sample from '../utils/sample';
 import { Response, Request } from 'express';
+import Word from '../models/word.model';
 
 export const getAllWords = async (_req: Request, res: Response) => {
   try {
-    return res.status(200).json(WORDS);
-  } catch (error) {
-    return res.status(500).json({ error: error.message });
-  }
-};
-
-export const getOneRandomWord = async (_req: Request, res: Response) => {
-  try {
-    const randomWord = sample(WORDS);
-
-    return res.status(200).json(randomWord);
+    const words = await Word.findAll();
+    return res.status(200).json(words);
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
 };
 
 export const getRandomWords = async (req: Request, res: Response) => {
-  let { count = 1 }: any = req.query;
+  const { count = 1 }: any = req.query;
 
   if (count < 1) {
     return res
@@ -34,14 +25,17 @@ export const getRandomWords = async (req: Request, res: Response) => {
   }
 
   try {
-    const randomWords = [];
-
-    while (count--) {
-      const randomWord = sample(WORDS);
-      randomWords.push(randomWord);
-    }
-
+    const randomWords = await Word.findRandom(count);
     return res.status(200).json(randomWords);
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+};
+
+export const findById = async (req: Request, res: Response) => {
+  try {
+    const oneWord = await Word.findById(Number(req.params.id));
+    return res.status(200).json(oneWord.textContent);
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }

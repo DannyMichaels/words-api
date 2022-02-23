@@ -14,7 +14,7 @@ function Word(word: TWord) {
 
 Word.create = async (newWord: TWord) => {
   try {
-    const query = `INSERT INTO Word (textContent, createdBy) VALUES (?, ?)`;
+    const query = `INSERT INTO Word (textContent, createdBy) VALUES (?, ?);`;
 
     const [{ insertId }]: any = await pool.query(query, [
       newWord.textContent,
@@ -26,10 +26,29 @@ Word.create = async (newWord: TWord) => {
   }
 };
 
-Word.getAll = async (word: TWord) => {
-  let query = 'SELECT * FROM word';
+Word.findAll = async () => {
+  const query = 'SELECT textContent FROM Word;';
+  const result: any = await pool.query(query);
 
-  const [result]: any = await pool.query(query);
+  return result.map(({ textContent }: TWord) => textContent);
+};
 
+Word.findRandom = async (limit = 1) => {
+  const query = `SELECT textContent FROM Word
+                ORDER BY RAND()
+                LIMIT ${limit};`;
+
+  const result: any = await pool.query(query);
+  return result.map(({ textContent }: TWord) => textContent);
+};
+
+Word.findById = async (id: number) => {
+  const query = `SELECT textContent
+                FROM Word
+                WHERE id = ?;`;
+
+  const [result]: any = await pool.query(query, id);
   return result;
 };
+
+export default Word;

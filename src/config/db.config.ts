@@ -1,5 +1,4 @@
-/* eslint-disable import/first */
-require('dotenv').config();
+import 'dotenv/config';
 
 export default {
   HOST: process.env.DATABASE_URL,

@@ -41,9 +41,7 @@ export const getRandomWords = async (req: Request, res: Response) => {
       randomWords.push(randomWord);
     }
 
-    const result = randomWords.length <= 1 ? randomWords[0] : randomWords;
-
-    return res.status(200).json(result);
+    return res.status(200).json(randomWords);
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }

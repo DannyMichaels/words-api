@@ -9,10 +9,12 @@ import helmet from 'helmet';
 
 // utils
 import dbConnect from './db/dbConnect';
+import path from 'path';
 
 // views
 import wordRoutes from './routes/words.routes';
 import viewRoutes from './routes/views.routes';
+
 declare global {
   namespace Express {
     interface Request {
@@ -35,8 +37,8 @@ export default async function createServer() {
   app.use(poolMiddleware(pool)); // use mysql pool for queries in controllers by passing pool to the request in the middleware
 
   app.set('view engine', 'pug'); // for views (specifically landing page)
-  app.set('views', './views'); // views directory
-
+  app.use(express.static(path.join(__dirname, '../public'))); // css and images for views.
+  console.log('path: ', path.join(__dirname, '../public'));
   app.use('/', viewRoutes);
   app.use('/api', wordRoutes); // getting the words
 

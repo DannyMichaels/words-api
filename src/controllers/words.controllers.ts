@@ -56,8 +56,6 @@ export const create = async (req: Request, res: Response) => {
       createdAt: new Date().toISOString(),
     });
 
-    console.log({ createdWord });
-
     return res.status(200).json({
       status: 'success',
       word: createdWord,

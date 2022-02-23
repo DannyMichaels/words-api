@@ -26,7 +26,7 @@ export const getRandomWords = async (req: Request, res: Response) => {
   if (count < 1) {
     return res
       .status(500)
-      .json({ error: 'count has to be greater or equal to 1' });
+      .json({ error: 'word count has to be greater or equal to 1' });
   }
 
   if (count > WORDS.length) {

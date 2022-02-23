@@ -4,7 +4,7 @@ import { Response, Request } from 'express';
 
 export const getAllWords = async (_req: Request, res: Response) => {
   try {
-    return res.status(200).json({ words });
+    return res.status(200).json(words);
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
@@ -14,7 +14,32 @@ export const getOneRandomWord = async (_req: Request, res: Response) => {
   try {
     const randomWord = sample(words);
 
-    return res.status(200).json({ word: randomWord });
+    return res.status(200).json(randomWord);
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+};
+
+export const getRandomWords = async (req: Request, res: Response) => {
+  let { count = 1 }: any = req.query;
+
+  if (count < 1) {
+    return res
+      .status(500)
+      .json({ error: 'count has to be greater or equal to 1' });
+  }
+
+  try {
+    const randomWords = [];
+
+    while (count--) {
+      const randomWord = sample(words);
+      randomWords.push(randomWord);
+    }
+
+    const result = randomWords.length <= 1 ? randomWords[0] : randomWords;
+
+    return res.status(200).json(result);
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }

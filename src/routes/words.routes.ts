@@ -8,6 +8,6 @@ const router = Router();
 
 router.get(['/words', '/words/all'], getAllWords); // GET
 
-router.get('/words/random', getOneRandomWord); // GET
+router.get(['/word', '/words/random'], getOneRandomWord); // GET
 
 export default router;

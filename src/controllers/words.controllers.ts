@@ -39,6 +39,11 @@ export const findById = async (req: Request, res: Response) => {
   try {
     const pool = req.pool;
     const oneWord = await Word.findById(pool, Number(req.params.id));
+
+    if (!oneWord) {
+      return res.status(500).json({ error: 'Word not found with this id' });
+    }
+
     return res.status(200).json(oneWord.textContent);
   } catch (error) {
     return res.status(500).json({ error: error.message });

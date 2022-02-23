@@ -4,7 +4,7 @@ import WORDS from '../utils/words';
 const run = async () => {
   const pool = await dbConnect();
 
-  for await (const word of WORDS) {
+  for (const word of WORDS) {
     const sql = `
       INSERT INTO Word (textContent, createdBy) VALUES (?, ?)
     `;

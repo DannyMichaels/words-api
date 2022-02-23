@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Application } from 'express';
 import logger from 'morgan';
 import cors from 'cors';
 import helmet from 'helmet';
@@ -6,7 +6,7 @@ import helmet from 'helmet';
 import wordRoutes from './routes/words.routes';
 
 export default function createServer() {
-  const app: Express.Application = express();
+  const app: Application = express();
 
   app.use(cors());
   app.use(helmet()); // security with express-helmet

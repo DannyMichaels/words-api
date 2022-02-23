@@ -1,7 +1,8 @@
 import words from '../words';
 import sample from '../utils/sample';
+import { Response, Request } from 'express';
 
-export const getAllWords = async (_req, res: Express.Response) => {
+export const getAllWords = async (_req: Request, res: Response) => {
   try {
     return res.status(200).json({ words });
   } catch (error) {
@@ -9,7 +10,7 @@ export const getAllWords = async (_req, res: Express.Response) => {
   }
 };
 
-export const getOneRandomWord = async (_req, res: Express.Response) => {
+export const getOneRandomWord = async (_req: Request, res: Response) => {
   try {
     const randomWord = sample(words);
 

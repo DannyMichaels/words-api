@@ -38,7 +38,7 @@ export default async function createServer() {
 
   app.set('view engine', 'pug'); // for views (specifically landing page)
   app.use(express.static(path.join(__dirname, '../public'))); // css and images for views.
-  console.log('path: ', path.join(__dirname, '../public'));
+
   app.use('/', viewRoutes);
   app.use('/api', wordRoutes); // getting the words
 

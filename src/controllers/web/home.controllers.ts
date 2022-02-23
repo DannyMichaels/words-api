@@ -3,7 +3,7 @@ import { Response, Request } from 'express';
 export const index = async (req: Request, res: Response) => {
   try {
     return res.render('pages/home', {
-      title: 'Hey',
+      title: 'Words API',
       message: 'Hello there!',
     });
   } catch (error) {

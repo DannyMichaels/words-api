@@ -1,4 +1,4 @@
-import dbConnect from './dbConnect';
+import dbConnect from '../db/dbConnect';
 import WORDS from '../utils/words';
 
 const run = async () => {

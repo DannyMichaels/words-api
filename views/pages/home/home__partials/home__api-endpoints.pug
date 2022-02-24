@@ -7,8 +7,13 @@ section.page-section.endpoints#endpoints
     .endpoints__content
       ul.endpoints__list
         each endpoint in API_ENDPOINTS
-          li.endpoints__list__item=endpoint
+          - var descriptionText = "// " + endpoint.description;
+          li.endpoints__list__item
+              span.endpoints__list__item__route
+                a(href=endpoint.example || endpoint.route)= endpoint.route
+              .endpoints__list__item__description= descriptionText
+    picture.endpoints__ghost-right__face
+      img.endpoints__ghost-right__image(src="images/ghost_group_big.png", alt="A ghost group")
+
     picture.endpoints__ghost-left__face
       img.endpoints__ghost-left__image(src="images/green_ghost.png", alt="A happy ghost greeting you")
-
-

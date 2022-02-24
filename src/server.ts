@@ -29,7 +29,7 @@ export default async function createServer() {
   const pool: Pool = await dbConnect(); // create mysql pool
 
   app.use(cors());
-  app.use(helmet()); // security with express-helmet
+  // app.use(helmet()); // security with express-helmet
 
   app.use(express.json()); // because body-parser is deprecated
 

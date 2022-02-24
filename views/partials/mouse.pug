@@ -2,9 +2,25 @@
 style(type="text/css") 
   include ./mouse.css
 
+script.
+  document.addEventListener('DOMContentLoaded', function () {
+    const sectionToScrollTo= "#{mousePartialClickScrollSection}"; // section to scroll to, set on controller
+    const scrollSection = document.querySelector(sectionToScrollTo);
+
+    const mouseButton = document.querySelector('.mouse__container');
+
+    mouseButton.addEventListener('click', () => {
+      document.body.scrollTo({
+        top: scrollSection.scrollHeight,
+        behavior: 'smooth',
+      });
+    });
+  });
+
+
 .mouse__container
-  if mouseText
-    p.mouse__text= mouseText 
+  if mousePartialText
+    p.mouse__text= mousePartialText 
   .mouse__face
     .mouse__border
     .mouse__wheel

@@ -5,7 +5,10 @@ export const index = async (req: Request, res: Response) => {
     return res.render('pages/home', {
       title: 'Words API',
       message: 'Hello there!',
-      mouseText: 'Scroll for more',
+
+      // the mouse partial
+      mousePartialText: 'Scroll for more',
+      mousePartialClickScrollSection: '#endpoints',
     });
   } catch (error) {
     return res.status(500).json({ error: error.message });

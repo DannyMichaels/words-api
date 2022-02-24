@@ -1,0 +1,12 @@
+.endpoints__ghost-left__face {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  max-width: 400px;
+  bottom: 0;
+}
+
+.endpoints__ghost-left__image {
+  transform: rotate(180deg) scaleX(-1);
+}

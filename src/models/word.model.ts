@@ -63,4 +63,15 @@ Word.findById = async (pool: Pool, id: number): Promise<TWord> => {
   return result;
 };
 
+Word.findAllByLength = async (
+  pool: Pool,
+  params: { length: number }
+): Promise<TWord> => {
+  const query = ` SELECT textContent FROM Word
+                  WHERE LENGTH(textContent) = ?;`;
+
+  const [result = []]: any = await pool.query(query, params.length);
+  return result.map(({ textContent }: TWord) => textContent); // return only the value for each element instead of { textContent: "value" }
+};
+
 export default Word;

@@ -5,8 +5,16 @@ import Word from '../../models/word.model';
 export const getAllWords = async (req: Request, res: Response) => {
   try {
     const pool = req.pool;
+    const { length = null }: any = req.query;
 
-    const words = await Word.findAll(pool);
+    let words;
+
+    if (!length) {
+      words = await Word.findAll(pool);
+    } else {
+      words = await Word.findAllByLength(pool, { length });
+    }
+
     return res.status(200).json(words);
   } catch (error) {
     return res.status(500).json({ error: error.message });

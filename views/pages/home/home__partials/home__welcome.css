@@ -1,3 +1,16 @@
+/* .page-section.welcome::before {
+  background-image: url('https://img.freepik.com/free-photo/3d-rendered-kawaii-strawberry-moon_490107-211.jpg');
+  content: '';
+  background-size: cover;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.5;
+  z-index: -1;
+  position: absolute;
+} */
+
 .welcome__text__container {
   position: relative;
 }

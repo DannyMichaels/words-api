@@ -69,3 +69,14 @@ export const create = async (req: Request, res: Response) => {
     return res.status(500).json({ error: error.message });
   }
 };
+
+export const getOne = async (req: Request, res: Response) => {
+  try {
+    const pool = req.pool;
+
+    const oneWord = await Word.getOne(pool);
+    return res.status(200).json(oneWord.textContent);
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+};

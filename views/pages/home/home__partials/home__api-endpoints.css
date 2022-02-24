@@ -1,3 +1,23 @@
+.endpoints__message {
+  color: #86b3e2;
+  padding: 0;
+  margin: 0;
+  font-size: clamp(19px, 10vw, 40px);
+}
+
+.endpoints__subtitle {
+  color: #a6a6a6;
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+.endpoints__content {
+  border: 1px solid black;
+  position: relative;
+  padding-bottom: 40%;
+}
+
 .endpoints__ghost-left__face {
   position: absolute;
   bottom: 0;

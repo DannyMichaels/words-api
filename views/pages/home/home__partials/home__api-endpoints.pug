@@ -1,9 +1,14 @@
 style(type="text/css")
   include ./home__api-endpoints.css
 
-
 section.page-section.endpoints#endpoints
   .inner-column
-    h1 test
+    h1.endpoints__message Explore the endpoints
+    .endpoints__content
+      ul.endpoints__list
+        each endpoint in API_ENDPOINTS
+          li.endpoints__list__item=endpoint
     picture.endpoints__ghost-left__face
       img.endpoints__ghost-left__image(src="images/green_ghost.png", alt="A happy ghost greeting you")
+
+

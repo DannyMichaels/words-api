@@ -13,7 +13,7 @@ export default [
     description: 'get random words!',
   },
   {
-    example: '/api/words/6',
+    example: '/api/words/2664',
     route: '/api/words/{{id}}',
     description: 'find a word by id (but why?)',
   },

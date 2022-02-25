@@ -1,0 +1,51 @@
+style(type="text/css") 
+  include ./switch.css
+script.
+  document.addEventListener("DOMContentLoaded", function () {
+    const darkModeSwitch = document.getElementById('darkmode-switch');
+    const themeState = localStorage.getItem('themeState');
+
+    const darkTheme = {
+      backgroundColor: "#2C2C2C",
+      primaryTextColor: "#86B3E2",
+      headerColor: "#fff",
+    }
+
+    const lightTheme = {
+      backgroundColor: '#fff',
+      primaryTextColor: "#262626",
+      headerColor: "#262626",
+    }
+
+    // set styles on mount
+    if (themeState === 'dark' || !themeState) {
+      darkModeSwitch.checked = true;
+      setStyles(darkTheme);
+      localStorage.setItem('themeState', 'dark');
+    } else {
+      darkModeSwitch.checked = false;
+      setStyles(lightTheme);
+    }
+
+    darkModeSwitch.addEventListener("change", (e) =>{
+      const shouldTurnDark = e.target.checked;
+
+      if (shouldTurnDark) {
+        setStyles(darkTheme);
+        localStorage.setItem('themeState', 'dark');
+      } else {
+        setStyles(lightTheme);
+        localStorage.setItem('themeState', 'light');
+      } 
+    })
+
+    function setStyles(selectedTheme) {
+      for (const [key, value] of Object.entries(selectedTheme)) {
+        document.body.style.setProperty(`--${key}`, value)
+      }
+    }
+  })
+
+label.switch
+  input(type="checkbox", id="darkmode-switch")
+  span.slider.round

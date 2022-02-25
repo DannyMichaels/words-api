@@ -1,5 +1,5 @@
 .endpoints__message {
-  color: #86b3e2;
+  color: var(--primaryTextColor, #86b3e2);
   padding: 0;
   margin: 0;
   font-size: clamp(19px, 10vw, 40px);
@@ -32,7 +32,7 @@
 }
 
 .endpoints__list__item__route > a {
-  color: #86b3e2;
+  color: var(--primaryTextColor, #86b3e2);
   font-size: 14px;
   text-decoration: none;
   display: inline-block;

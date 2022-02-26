@@ -34,7 +34,7 @@ export const create = async (req: Request, res: Response) => {
       });
     }
 
-    textContent = unescape(textContent.trim());
+    textContent = unescape(textContent.trim().toLowerCase());
     createdBy = unescape(createdBy.trim());
 
     const foundWord = await Word.findByName(pool, { textContent });

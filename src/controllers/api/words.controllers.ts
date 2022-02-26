@@ -66,7 +66,7 @@ export const create = async (req: Request, res: Response) => {
   try {
     const pool = req.pool;
     const { textContent, createdBy = 'anonymous' } = req.body;
-    const cleanTextContent = unescape(textContent.trim());
+    const cleanTextContent = unescape(textContent.trim().toLowerCase());
     const cleanCreatedBy = unescape(createdBy);
 
     const foundWord =

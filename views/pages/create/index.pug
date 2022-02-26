@@ -1,6 +1,8 @@
 html
   head
+  link(rel="stylesheet", href="/styles/index.css", type="text/css")
   link(rel="stylesheet", href="/styles/pages/create.css", type="text/css")
+
   title Words API | Create
   body
     include ../../partials/header.pug
@@ -9,8 +11,14 @@ html
       h1= message
       form.page-section.form__container(action="/words/new", method="post")
         .inner-column
-          input(type="text" name="textContent", placeholder="Enter the word" required)
-          input(type="text" name="createdBy", placeholder="Enter your name (or leave empty)")
-          input(type="submit", name="Submit") 
+          .form__box
+            picture.ghost__face
+              img.ghost__image(src="/images/yawn_ghost.png")
+            .form__row
+              input(type="text" name="textContent", placeholder="Enter the word" required)
+            .form__row
+              input(type="text" name="createdBy", placeholder="Enter your name (or leave empty)")
+            .form__row
+              input(type="submit", name="Submit") 
 
     include ../../partials/footer.pug

@@ -1,19 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400&display=swap');
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: var(--backgroundColor, #2c2c2c);
-  font-family: 'Inter', sans-serif;
-}
-
 .page-content {
   flex-grow: 1;
 }
@@ -33,4 +17,39 @@ body {
   margin-left: auto;
   padding: 10px;
   /* border: 2px solid red; */
+}
+
+.page-section.form__container > .inner-column {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+}
+
+.form__box {
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
+  height: 30rem;
+  width: 100%;
+  margin: 0 auto;
+  background-image: linear-gradient(
+      105deg,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0.9) 50%,
+      transparent 50%
+    ),
+    url('../../images/peekabo.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.ghost__face {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  max-width: 400px;
 }

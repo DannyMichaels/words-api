@@ -63,6 +63,12 @@ export const create = async (req: Request, res: Response) => {
     const pool = req.pool;
     const { textContent, createdBy = 'anonymous' } = req.body;
 
+    const foundWord = (await Word.findByName(pool, textContent.trim())) || '';
+
+    if (foundWord) {
+      return res.status(500).json({ error: 'Word already exists' });
+    }
+
     const createdWord = await Word.create(pool, {
       textContent,
       createdBy,

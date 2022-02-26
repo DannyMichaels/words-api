@@ -6,6 +6,7 @@ import poolMiddleware from './middleware/pool';
 import logger from 'morgan';
 import cors from 'cors';
 import helmet from 'helmet';
+import bodyParser from 'body-parser';
 
 // utils
 import dbConnect from './db/dbConnect';
@@ -31,7 +32,10 @@ export default async function createServer() {
   app.use(cors());
   // app.use(helmet()); // security with express-helmet
 
-  app.use(express.json()); // because body-parser is deprecated
+  app.use(express.json());
+
+  // @ts-ignore
+  app.use(bodyParser());
 
   app.use(logger('dev'));
   app.use(poolMiddleware(pool)); // use mysql pool for queries in controllers by passing pool to the request in the middleware

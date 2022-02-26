@@ -79,10 +79,10 @@ Word.findByName = async (
   params: { textContent: string }
 ): Promise<TWord> => {
   const query = ` SELECT textContent FROM Word
-                  WHERE textContent = ?;`;
+    WHERE textContent = ?;`;
 
-  const [result = []]: any = await pool.query(query, params.textContent);
-  return result.map(({ textContent }: TWord) => textContent); // return only the value for each element instead of { textContent: "value" }
+  const [[result] = []]: any = await pool.query(query, params.textContent);
+  return result?.textContent;
 };
 
 export default Word;

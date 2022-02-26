@@ -2,6 +2,9 @@ import WORDS from '../../utils/words';
 import { Response, Request } from 'express';
 import Word from '../../models/word.model';
 
+// @ts-ignore
+import unescape from 'unescape';
+
 export const getAllWords = async (req: Request, res: Response) => {
   try {
     const pool = req.pool;
@@ -62,16 +65,19 @@ export const create = async (req: Request, res: Response) => {
   try {
     const pool = req.pool;
     const { textContent, createdBy = 'anonymous' } = req.body;
+    const cleanTextContent = unescape(textContent.trim());
+    const cleanCreatedBy = unescape(createdBy);
 
-    const foundWord = (await Word.findByName(pool, textContent.trim())) || '';
+    const foundWord =
+      (await Word.findByName(pool, { textContent: cleanTextContent })) || '';
 
     if (foundWord) {
       return res.status(500).json({ error: 'Word already exists' });
     }
 
     const createdWord = await Word.create(pool, {
-      textContent,
-      createdBy,
+      textContent: cleanTextContent,
+      createdBy: cleanCreatedBy,
       createdAt: new Date().toISOString(),
     });
 

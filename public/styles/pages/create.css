@@ -46,14 +46,6 @@
   position: relative;
 }
 
-.form__inputs {
-  width: 50%;
-  padding: 6rem;
-}
-
-.form__group {
-}
-
 .form__title {
   font-size: 3.5rem;
   text-transform: uppercase;
@@ -81,4 +73,20 @@
   right: 0;
   width: 50%;
   max-width: 400px;
+}
+
+.form__inputs {
+  width: 50%;
+  padding: 6rem;
+}
+
+.form__group {
+}
+
+.form__input {
+  font-size: 1.5rem;
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
 }

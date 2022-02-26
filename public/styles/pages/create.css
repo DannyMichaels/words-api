@@ -111,7 +111,7 @@
 }
 
 .form__input:focus:invalid {
-  border-bottom: 3px solid red;
+  border-bottom: 3px solid orangered;
 }
 
 .form__input::webkit-input-placeholder {
@@ -131,4 +131,9 @@
   opacity: 0;
   visibility: hidden;
   transform: translateY(-4rem);
+}
+
+.form__status {
+  text-align: center;
+  width: 50%;
 }

@@ -20,7 +20,19 @@ export const index = async (req: Request, res: Response) => {
 export const create = async (req: Request, res: Response) => {
   try {
     const pool = req.pool;
-    let { textContent, createdBy = 'anonymous' } = req.body;
+    let { textContent, createdBy = 'anonymous', restart = 'false' } = req.body;
+
+    restart = unescape(restart);
+
+    if (restart === 'true') {
+      return res.render('pages/create', {
+        status: '',
+        error: '',
+        message: '',
+        canRestart: false,
+      });
+    }
+
     textContent = unescape(textContent.trim());
     createdBy = unescape(createdBy.trim());
 

@@ -8,24 +8,30 @@ html
     include ../../partials/header.pug
 
     main.page-content
-      h1= message
       form.page-section.form__container(action="/words/new", method="post")
         .inner-column
           .form__box
             h2.form__title
-              ="Add a new word"
+              = status === 'success' ? "Thank You!" : status === 'error' ? "Error!" : "Add a new word"
             picture.ghost__face
               img.ghost__image(src="/images/yawn_ghost.png")
-            .form__inputs
-              .form__group
-                input.form__input(type="text", id="textContent", name="textContent", placeholder="Enter the word", required)
-                label.form__label(for="textContent") The word
-              .form__group
-                //- input.form__input(type="email", id="createdBy", name="createdBy", placeholder="Email address", required)
-                //- label.form__label(for="createdBy") Email address
-                input.form__input(type="text", id="createdBy", name="createdBy", placeholder="Enter your name", required)
-                label.form__label(for="createdBy") Your name
-              .form__group
-                button.form__button(type="submit") Submit 
+            if canRestart
+              p.form__status= message
+              .form__inputs
+                .form__group
+                  button.form__button(type="submit") Restart
+                  input(hidden, value="true", name="restart")
+            else 
+                .form__inputs
+                  .form__group
+                    input.form__input(type="text", id="textContent", name="textContent", placeholder="The word", required)
+                    label.form__label(for="textContent") The word
+                  .form__group
+                    //- input.form__input(type="email", id="createdBy", name="createdBy", placeholder="Email address", required)
+                    //- label.form__label(for="createdBy") Email address
+                    input.form__input(type="text", id="createdBy", name="createdBy", placeholder="Your name", required)
+                    label.form__label(for="createdBy") Your name
+                  .form__group
+                    button.form__button(type="submit") Submit 
 
     include ../../partials/footer.pug

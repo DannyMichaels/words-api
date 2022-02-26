@@ -51,7 +51,11 @@
   text-transform: uppercase;
   font-weight: 700;
   display: inline-block;
-  background-image: linear-gradient(to right, #000, orangered);
+  background-image: linear-gradient(
+    to right,
+    var(--primaryTextColor),
+    orangered
+  );
   -webkit-background-clip: text;
   color: transparent;
   letter-spacing: 0.2rem;
@@ -64,7 +68,7 @@
 
 .form__title:hover {
   transform: skewY(2deg) skewX(15deg) scale(1.1);
-  text-shadow: 0.5rem 1rem 2rem rgba(255, 255, 255, 0.2);
+  text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .ghost__face {
@@ -77,16 +81,54 @@
 
 .form__inputs {
   width: 50%;
-  padding: 6rem;
+  padding: 0 4rem;
 }
 
 .form__group {
+}
+
+.form__group:not(:last-child) {
+  margin-bottom: 2rem;
 }
 
 .form__input {
   font-size: 1.5rem;
   padding: 1.5rem 2rem;
   border-radius: 2px;
+  color: inherit;
   background-color: rgba(255, 255, 255, 0.5);
   border: none;
+  font-family: 'Inter', sans-serif;
+  border-bottom: 3px solid transparent;
+  width: 90%;
+  display: block;
+}
+
+.form__input:focus {
+  outline: none;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.01);
+  border-bottom: 3px solid var(--primaryTextColor, #000);
+}
+
+.form__input:focus:invalid {
+  border-bottom: 3px solid red;
+}
+
+.form__input::webkit-input-placeholder {
+  color: var(--subTextColor);
+}
+
+.form__label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-left: 2rem;
+  margin-top: 0.7rem;
+  display: block;
+  transition: all 0.3s;
+}
+
+.form__group > .form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4rem);
 }

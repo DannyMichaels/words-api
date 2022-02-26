@@ -18,10 +18,12 @@ html
               img.ghost__image(src="/images/yawn_ghost.png")
             .form__inputs
               .form__group
-                input.form__input(type="text", id="textContent", name="textContent", placeholder="Word" required)
-                label.form__label(for="textContent") Word
+                input.form__input(type="text", id="textContent", name="textContent", placeholder="Enter the word", required)
+                label.form__label(for="textContent") The word
               .form__group
-                input.form__input(type="text", id="createdBy", name="createdBy", placeholder="Enter your name (or leave empty)")
+                //- input.form__input(type="email", id="createdBy", name="createdBy", placeholder="Email address", required)
+                //- label.form__label(for="createdBy") Email address
+                input.form__input(type="text", id="createdBy", name="createdBy", placeholder="Enter your name", required)
                 label.form__label(for="createdBy") Your name
               .form__group
                 button.form__button(type="submit") Submit 

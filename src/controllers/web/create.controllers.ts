@@ -29,7 +29,7 @@ export const create = async (req: Request, res: Response) => {
     if (foundWord) {
       return res.status(500).render('pages/create', {
         status: 'error',
-        message: 'Word already exists',
+        message: `Word ${textContent} already exists`,
         canRestart: true,
       });
     }

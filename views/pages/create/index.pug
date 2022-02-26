@@ -12,13 +12,18 @@ html
       form.page-section.form__container(action="/words/new", method="post")
         .inner-column
           .form__box
+            h2.form__title
+              ="Add a new word"
             picture.ghost__face
               img.ghost__image(src="/images/yawn_ghost.png")
-            .form__row
-              input(type="text" name="textContent", placeholder="Enter the word" required)
-            .form__row
-              input(type="text" name="createdBy", placeholder="Enter your name (or leave empty)")
-            .form__row
-              input(type="submit", name="Submit") 
+            .form__inputs
+              .form__group
+                input.form__input(type="text", id="textContent", name="textContent", placeholder="Word" required)
+                label.form__label(for="textContent") Word
+              .form__group
+                input.form__input(type="text", id="createdBy", name="createdBy", placeholder="Enter your name (or leave empty)")
+                label.form__label(for="createdBy") Your name
+              .form__group
+                input(type="submit", name="Submit") 
 
     include ../../partials/footer.pug

@@ -46,6 +46,35 @@
   position: relative;
 }
 
+.form__inputs {
+  width: 50%;
+  padding: 6rem;
+}
+
+.form__group {
+}
+
+.form__title {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(to right, #000, orangered);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2rem;
+  transition: all 0.2s;
+
+  font-size: 2.5rem;
+  width: 50%;
+  text-align: center;
+}
+
+.form__title:hover {
+  transform: skewY(2deg) skewX(15deg) scale(1.1);
+  text-shadow: 0.5rem 1rem 2rem rgba(255, 255, 255, 0.2);
+}
+
 .ghost__face {
   position: absolute;
   bottom: 0;

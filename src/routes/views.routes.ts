@@ -1,4 +1,5 @@
 import Router from 'express';
+import * as Home from '../controllers/web/home.controllers';
 import * as Create from '../controllers/web/create.controllers';
 
 const router = Router();

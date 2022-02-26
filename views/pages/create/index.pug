@@ -2,15 +2,16 @@ html
   head
   link(rel="stylesheet", href="/styles/index.css", type="text/css")
   link(rel="stylesheet", href="/styles/pages/create.css", type="text/css")
+  meta(name="viewport" content="width=device-width, initial-scale=1")
 
   title Words API | Create
   body
     include ../../partials/header.pug
 
     main.page-content
-      form.page-section.form__container(action="/words/new", method="post")
+      section.page-section.form__container
         .inner-column
-          .form__box
+          form.form__box(action="/words/new", method="post")
             h2.form__title
               = status === 'success' ? "Thank You!" : status === 'error' ? "Error!" : "Add a new word"
             picture.ghost__face

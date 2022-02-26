@@ -137,16 +137,28 @@
   color: var(--primaryTextColor);
 }
 
-.form__button:after {
-  background-color: var(--backgroundColor);
-}
-
 .form__button:hover {
   transform: translateY(-3px);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
-.form__button:hover::after {
+
+.form__button:after {
+  background-color: var(--backgroundColor);
+  content: '';
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.form__button:hover:after {
   transform: scaleX(1.4) scaleY(1.6);
+  background-color: var(--primaryTextColor);
   opacity: 0;
 }
 
@@ -155,4 +167,58 @@
   outline: none;
   transform: translateY(-1px);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 880px) {
+  .form__inputs {
+    width: 75%;
+  }
+
+  .form__input {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .form__label {
+    font-size: 12px;
+  }
+
+  .page-section.form__container > .inner-column {
+    max-width: 50rem;
+    padding: 0 3rem;
+  }
+
+  .form__box {
+    background-image: linear-gradient(
+        105deg,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(255, 255, 255, 0.9) 50%,
+        rgba(255, 255, 255, 0.9) 50%
+      ),
+      url('../../images/peekabo.jpg');
+  }
+
+  .form__title {
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .form__inputs {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 2rem;
+  }
+
+  .form__title {
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.8rem;
+    padding: 0.8rem;
+  }
 }

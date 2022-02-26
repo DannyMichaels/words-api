@@ -1,26 +1,5 @@
-.page-content {
-  flex-grow: 1;
-}
-
-.page-section {
-  scroll-margin-top: 2em;
-  position: relative;
-  /* border: 1px solid lime; */
-}
-
-.page-section > .inner-column {
-  position: relative;
-  display: block;
-  width: 98%;
-  max-width: 1100px;
-  margin-right: auto;
-  margin-left: auto;
-  padding: 10px;
-  /* border: 2px solid red; */
-}
-
 .page-section.form__container > .inner-column {
-  min-height: 90vh;
+  min-height: 88vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,7 +10,7 @@
 .form__box {
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
-  height: 30rem;
+  height: 34rem;
   width: 100%;
   margin: 0 auto;
   background-image: linear-gradient(
@@ -63,7 +42,9 @@
 
   font-size: 2.5rem;
   width: 50%;
-  text-align: center;
+
+  text-align: left;
+  margin-left: 4rem;
 }
 
 .form__title:hover {
@@ -79,12 +60,16 @@
   max-width: 400px;
 }
 
+.form__status {
+  text-align: left;
+  margin-left: 4rem;
+  width: 50%;
+  font-size: 1.2rem;
+}
+
 .form__inputs {
   width: 50%;
   padding: 0 4rem;
-}
-
-.form__group {
 }
 
 .form__group:not(:last-child) {
@@ -102,11 +87,12 @@
   border-bottom: 3px solid transparent;
   width: 90%;
   display: block;
+  transition: all 0.3s;
+  box-shadow: 0 0.4rem 3rem rgb(0 0 0 / 20%);
 }
 
 .form__input:focus {
   outline: none;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.01);
   border-bottom: 3px solid var(--primaryTextColor, #000);
 }
 
@@ -133,7 +119,40 @@
   transform: translateY(-4rem);
 }
 
-.form__status {
-  text-align: center;
-  width: 50%;
+.form__button,
+.form__button:link,
+.form__button:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all 0.2s;
+  position: relative;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+
+  background-color: var(--backgroundColor);
+  color: var(--primaryTextColor);
+}
+
+.form__button:after {
+  background-color: var(--backgroundColor);
+}
+
+.form__button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+.form__button:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.form__button:active,
+.form__button:focus {
+  outline: none;
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }

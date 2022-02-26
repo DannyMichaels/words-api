@@ -1,5 +1,6 @@
 import { Response, Request } from 'express';
 import Word from '../../models/word.model';
+import { validateEmail } from '../../utils/validateEmail';
 
 // @ts-ignore
 import unescape from 'unescape';
@@ -42,6 +43,14 @@ export const create = async (req: Request, res: Response) => {
       return res.status(500).render('pages/create', {
         status: 'error',
         message: `Word ${textContent} already exists`,
+        canRestart: true,
+      });
+    }
+
+    if (!validateEmail(createdBy)) {
+      return res.status(500).render('pages/create', {
+        status: 'error',
+        message: `Invalid email`,
         canRestart: true,
       });
     }

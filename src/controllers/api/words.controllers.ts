@@ -1,6 +1,7 @@
 import WORDS from '../../utils/words';
 import { Response, Request } from 'express';
 import Word from '../../models/word.model';
+import { validateEmail } from '../../utils/validateEmail';
 
 // @ts-ignore
 import unescape from 'unescape';
@@ -73,6 +74,12 @@ export const create = async (req: Request, res: Response) => {
 
     if (foundWord) {
       return res.status(500).json({ error: 'Word already exists' });
+    }
+
+    if (!validateEmail(createdBy)) {
+      return res.status(500).json({
+        error: `Invalid email`,
+      });
     }
 
     const createdWord = await Word.create(pool, {

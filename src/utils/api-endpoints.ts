@@ -22,4 +22,9 @@ export default [
     route: '/api/words/{{id}}',
     description: 'find a word by id (but why?)',
   },
+  {
+    example: '/words/new',
+    route: '/api/words/new',
+    description: 'Create a new word!',
+  },
 ];

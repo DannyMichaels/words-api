@@ -47,7 +47,7 @@ export const create = async (req: Request, res: Response) => {
       });
     }
 
-    if (!validateEmail(createdBy) || createdBy !== 'anonymous') {
+    if (!validateEmail(createdBy)) {
       return res.status(500).render('pages/create', {
         status: 'error',
         message: `Invalid email`,

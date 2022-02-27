@@ -30,7 +30,27 @@ export default async function createServer() {
   const pool: Pool = await dbConnect(); // create mysql pool
 
   app.use(cors());
-  // app.use(helmet()); // security with express-helmet
+  app.use(
+    helmet({
+      contentSecurityPolicy: {
+        directives: {
+          defaultSrc: ["'self'"],
+          scriptSrc: [
+            "'self'",
+            "'unsafe-inline'",
+            'https://gitcat-words-api.herokuapp.com',
+          ],
+          styleSrc: [
+            "'self'",
+            'https://fonts.googleapis.com',
+            "'unsafe-inline'",
+          ],
+          imgSrc: ["'self'", 'https://*.com'],
+          fontSrc: ["'self'", 'https://*.com', 'data:'],
+        },
+      },
+    })
+  );
 
   app.use(express.json());
 

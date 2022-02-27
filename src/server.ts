@@ -30,6 +30,7 @@ export default async function createServer() {
   const pool: Pool = await dbConnect(); // create mysql pool
 
   app.use(cors());
+
   app.use(
     helmet({
       contentSecurityPolicy: {
@@ -54,8 +55,10 @@ export default async function createServer() {
 
   app.use(express.json());
 
-  // @ts-ignore
-  app.use(bodyParser());
+  // parse requests of content-type - application/x-www-form-urlencoded
+  app.use(
+    express.urlencoded({ extended: true })
+  ); /* bodyParser.urlencoded() is deprecated */
 
   app.use(logger('dev'));
   app.use(poolMiddleware(pool)); // use mysql pool for queries in controllers by passing pool to the request in the middleware

@@ -6,6 +6,8 @@ import poolMiddleware from './middleware/pool';
 import logger from 'morgan';
 import cors from 'cors';
 import helmet from 'helmet';
+import csrf from 'csurf';
+import cookieParser from 'cookie-parser';
 
 // utils
 import dbConnect from './db/dbConnect';
@@ -20,6 +22,7 @@ declare global {
     interface Request {
       // add pool to request interface so can be used in middleware
       pool?: Pool;
+      csrfToken: () => string;
     }
   }
 }
@@ -58,6 +61,11 @@ export default async function createServer() {
   app.use(
     express.urlencoded({ extended: true })
   ); /* bodyParser.urlencoded() is deprecated */
+
+  // express.json and bodyparser have to be used before these 2 (cookieparser and csrf) are used
+  app.use(cookieParser());
+  // const csrfProtection = csrf({ cookie: true });
+  // app.use(csrfProtection);
 
   app.use(logger('dev'));
   app.use(poolMiddleware(pool)); // use mysql pool for queries in controllers by passing pool to the request in the middleware

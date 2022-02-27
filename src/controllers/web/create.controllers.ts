@@ -12,6 +12,7 @@ export const index = async (req: Request, res: Response) => {
       error: '',
       message: '',
       canRestart: false,
+      csrfToken: req.csrfToken(),
     });
   } catch (error) {
     return res.status(500).json({ error: error.message });
@@ -31,6 +32,7 @@ export const create = async (req: Request, res: Response) => {
         error: '',
         message: '',
         canRestart: false,
+        csrfToken: req.csrfToken(),
       });
     }
 
@@ -44,6 +46,7 @@ export const create = async (req: Request, res: Response) => {
         status: 'error',
         message: `Word ${textContent} already exists`,
         canRestart: true,
+        csrfToken: req.csrfToken(),
       });
     }
 
@@ -52,6 +55,7 @@ export const create = async (req: Request, res: Response) => {
         status: 'error',
         message: `Invalid email`,
         canRestart: true,
+        csrfToken: req.csrfToken(),
       });
     }
 
@@ -66,12 +70,14 @@ export const create = async (req: Request, res: Response) => {
       message: `New word (${createdWord.textContent}) created successfuly!`,
       newlyCreatedWord: createdWord.textContent,
       canRestart: true,
+      csrfToken: req.csrfToken(),
     });
   } catch (error) {
     return res.status(500).render('pages/create', {
       status: 'error',
       message: error.message,
       canRestart: true,
+      csrfToken: req.csrfToken(),
     });
   }
 };

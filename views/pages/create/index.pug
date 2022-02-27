@@ -12,6 +12,7 @@ html
       section.page-section.form__container
         .inner-column
           form.form__box(action="/words/new", method="post")
+            input(hidden, name="_csrf" value=csrfToken)
             h2.form__title
               = status === 'success' ? "Thank You!" : status === 'error' ? "Error!" : "Add a new word"
             picture.ghost__face

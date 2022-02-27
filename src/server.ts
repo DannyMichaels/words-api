@@ -6,7 +6,6 @@ import poolMiddleware from './middleware/pool';
 import logger from 'morgan';
 import cors from 'cors';
 import helmet from 'helmet';
-import bodyParser from 'body-parser';
 
 // utils
 import dbConnect from './db/dbConnect';
